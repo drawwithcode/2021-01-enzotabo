@@ -2,10 +2,6 @@ let angle = 0;
 let img;
 let c;
 
-function preload() {
-  img = loadImage("assets/windows.png");
-}
-
 function setup() {
   let c = createCanvas(windowWidth, windowHeight);
   background("black");
