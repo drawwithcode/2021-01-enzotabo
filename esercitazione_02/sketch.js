@@ -89,8 +89,11 @@ function draw() {
 
 //prova
 
+let raggioCresce = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  /*
   for (let i = 0; i < 5; i++) {
     balls.push(
       new Ball(
@@ -101,19 +104,45 @@ function setup() {
       )
     );
   }
+  */
 }
 
 function draw() {
   background(220);
+  raggioCresce = raggioCresce + 0.1;
+
+  balls.push(
+    new Ball(
+      createVector(mouseX, mouseY),
+      p5.Vector.random2D().mult(random(10)),
+      raggioCresce,
+      color(random(255), random(255), random(255))
+    )
+  );
+  //collisione delle palle
+  /*
+  if(mouseClicked == true){
+    
+  }
+  else{
+    
+  }
+  */
+
   for (let i = 0; i < balls.length; i++) {
     for (let j = 0; j < i; j++) {
       balls[i].collide(balls[j]);
     }
   }
+  //movimento delle palle
   for (let i = 0; i < balls.length; i++) {
     balls[i].move();
     balls[i].draw();
   }
+}
+
+function mouseClicked() {
+  raggioCresce = 0;
 }
 
 function windowResized() {
